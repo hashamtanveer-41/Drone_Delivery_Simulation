@@ -3,22 +3,18 @@
 #include<ctime>
 using namespace std;
 
-int check_obstacle(); // function for checking the weather . it is a function prototype
+int check_battery(); // function for checking the weather . it is a function prototype
 
 int main(){
-    srand(time(0)); // helps generate a random number everytime
-cout << "is there any obstacle? = ";
-    check_obstacle();
-    return 0;
-}
-// .....................declaration/defining of obstacle function.........................
 
-int check_obstacle() {
-    int obstacle= 1+rand()%2;
-    if (obstacle==1) {
-        cout << "YES";
-    }
-    else {
-        cout << "NO";
-    }
+    srand(time(0)); // helps generate a random number everytime
+cout << "remaining battery percentage = ";
+   cout << check_battery();  //calling battery function
+    cout << "%";
+}
+// .....................declaration/defining of battery function.........................
+
+int check_battery() {
+    int battery= 10+rand()%75;
+    return battery;
 }
