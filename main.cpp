@@ -4,6 +4,13 @@ using namespace std;
 
 //Function to check the mission status
 string operationDecider();
+//Function to provide Delivery results
+void Delivery_Results();
+
+// Declaring the global Variables for summary
+int success_Missions =0;
+int failed_Missions =0;
+int delayed_Missions =0;
 int main(){
 
     return 0;
@@ -35,4 +42,39 @@ string operationDecider() {
     return "Unknown";
     // Incrementing total missions
     total_Missions++;
+}
+void Delivery_Results() {
+    int success_Missions = 0;
+    int failed_Missions =0;
+    int delayed_Missions =0;
+    if (operationDecider()=="success") {
+        cout << "Your parcel was delivered.";
+        success_Missions++;
+    }
+    if (operationDecider()=="Fail") {
+        cout << "The mission failed due to presence of obstacle and rainy weather.";
+        failed_Missions++;
+    }
+    if (operationDecider()=="Delay") {
+        cout << "The mission delayed due to rain.";
+        delayed_Missions++;
+    }
+
+}
+
+void Delivery_Results() {
+
+    string result = operationDecider();
+    if (result=="success") {
+        cout << "Your parcel was delivered.";
+        success_Missions++;
+    }
+    if (result=="Fail") {
+        cout << "The mission failed due to presence of obstacle and rainy weather.";
+        failed_Missions++;
+    }
+    if (result=="Delay") {
+        cout << "The mission delayed due to rain.";
+        delayed_Missions++;
+    }
 }
