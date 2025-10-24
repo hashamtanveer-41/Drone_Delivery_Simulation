@@ -6,6 +6,8 @@ using namespace std;
 string operationDecider(string, string, int);
 //Function to provide Delivery results
 void Delivery_Results(string);
+// Function to update the Battery level
+int BatteryUpdate(int, string);
 
 // Declaring the global Variables for summary
 int success_Missions =0;
