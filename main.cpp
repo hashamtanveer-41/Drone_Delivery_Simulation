@@ -15,34 +15,32 @@ int main(){
 
     return 0;
 }
-string operationDecider() {
-    /* Checking if weather is sunny, there are no obstacles
-        and the drone has required charging for the trip */
-
-    int total_Missions = 0;// Counter for number of missions performed
-
+string operationDecider(string weather, string obstacle, int battery) {
     /*Checking various conditions to determine the operations
      should be Successful, delayed or failed.*/
-    if (check_weather()=="sunny" && check_obstacle()=="NO" && check_battery()>=20){
-        cout << "Success";
-        return "Success";
-    }
-    if (check_weather()=="rainy" || check_obstacle()=="YES"){
-        cout << "Fail";
-        return "Fail";
-    }
-    if (check_weather()=="windy"){
-        cout << "Delay";
-        return "Delay";
-    }
-    if (check_battery() < 20) {
-        cout << "Recharge";
+    if (battery < 20) {
+        cout << "Recharge needed."<<endl;
         return "Recharge";
     }
-    return "Unknown";
-    // Incrementing total missions
-    total_Missions++;
+    else if (weather == "rainy") {
+        cout << "Mission delayed due to rain."<<endl;
+        return "Delay";
+    }
+    else if (obstacle == "YES") {
+        cout << "Mission failed due to obstacle."<<endl;
+        return "Fail";
+    }
+    else if (weather == "windy" && battery < 40) {
+        cout << "Battery too low for windy weather — returning to base.\n";
+        return "Delay";
+    }
+    else {
+        cout << "Mission successful!"<<endl;
+        return "Success";
+    }
+
 }
+
 void Delivery_Results() {
     int success_Missions = 0;
     int failed_Missions =0;
