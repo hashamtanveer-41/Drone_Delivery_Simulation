@@ -3,9 +3,9 @@
 using namespace std;
 
 //Function to check the mission status
-string operationDecider();
+string operationDecider(string, string, int);
 //Function to provide Delivery results
-void Delivery_Results();
+void Delivery_Results(string);
 
 // Declaring the global Variables for summary
 int success_Missions =0;
@@ -58,4 +58,28 @@ void Delivery_Results() {
         delayed_Missions++;
     }
 
+}
+
+int BatteryUpdate(int batteryLevel, string result) {
+    if (result == "Success") {
+        cout << "Trip completed successfully. 20% Battery is used."<<endl;
+        batteryLevel = batteryLevel- 20;
+    }
+    else if (result == "Fail") {
+        cout << "Mission failed. Battery used: 10% battery is used."<<endl;
+        batteryLevel =batteryLevel- 10;
+    }
+    else if (result == "Delay") {
+        cout << "Mission delayed.5% battery is used."<< endl;
+        batteryLevel = batteryLevel- 5;
+    }
+    else if (result == "Recharge") {
+        cout << "Drone returned to base. The battery increased by 15%."<<endl;
+        batteryLevel = batteryLevel- 15;
+    }
+
+    if (batteryLevel > 100) batteryLevel = 100;
+    if (batteryLevel < 0) batteryLevel = 0;
+
+    return batteryLevel;
 }
