@@ -61,20 +61,3 @@ void Delivery_Results() {
     }
 
 }
-
-void Delivery_Results() {
-
-    string result = operationDecider();
-    if (result=="success") {
-        cout << "Your parcel was delivered.";
-        success_Missions++;
-    }
-    if (result=="Fail") {
-        cout << "The mission failed due to presence of obstacle and rainy weather.";
-        failed_Missions++;
-    }
-    if (result=="Delay") {
-        cout << "The mission delayed due to rain.";
-        delayed_Missions++;
-    }
-}
