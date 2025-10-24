@@ -43,23 +43,22 @@ string operationDecider(string weather, string obstacle, int battery) {
 
 }
 
-void Delivery_Results() {
-    int success_Missions = 0;
-    int failed_Missions =0;
-    int delayed_Missions =0;
-    if (operationDecider()=="success") {
-        cout << "Your parcel was delivered.";
+void Delivery_Results(string result) {
+    if (result=="Success") {
+        cout << "Your parcel was delivered."<<endl;
         success_Missions++;
     }
-    if (operationDecider()=="Fail") {
-        cout << "The mission failed due to presence of obstacle and rainy weather.";
+    else  if (result=="Fail") {
+        cout << "The mission failed due to obstacle or rainy weather."<< endl;
         failed_Missions++;
     }
-    if (operationDecider()=="Delay") {
-        cout << "The mission delayed due to rain.";
+    else if (result=="Delay") {
+        cout << "The mission delayed due to rain."<<endl;
         delayed_Missions++;
     }
-
+    else if (result == "Recharge") {
+        cout << "Drone returned to base for recharging."<<endl;
+    }
 }
 
 int BatteryUpdate(int batteryLevel, string result) {
