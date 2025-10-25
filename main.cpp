@@ -1,19 +1,40 @@
 #include<iostream>
-
+#include<cstdlib>
 using namespace std;
 
-//Function to check the mission status
-string operationDecider(string, string, int);
-//Function to provide Delivery results
-void Delivery_Results(string);
-// Function to update the Battery level
-int BatteryUpdate(int, string);
+string operationDecider(string, string, int);   //Function to check the mission status
+void Delivery_Results(string);  //Function to provide Delivery results
+int BatteryUpdate(int, string); // Function to update the Battery level
 
 // Declaring the global Variables for summary
 int success_Missions =0;
 int failed_Missions =0;
 int delayed_Missions =0;
 int main(){
+    cout<< "\n\n-------------------------------------\n";
+    cout<< "| Drone delivery Simulation started |\n";
+    cout<< "-------------------------------------\n\n";
+    int battery = 100;
+    cout<<"Battery: "<<battery<<"%"<<endl<<endl;
+    string weather, obstacle, result;
+    srand(time(0));
+    for(int i = 1; i<=3; i++){
+        int w = rand()%3;
+        if(w ==0 ) weather= "sunny";
+        else if(w==1) weather= "rainy";
+        else weather = "windy";
+        obstacle = (rand()%2 ==0) ? "YES" : "NO";
+        //battery = 10 + rand()% 91;
+        result= operationDecider(weather, obstacle, battery);
+        Delivery_Results(result);
+        battery= BatteryUpdate(battery, result);
+        cout<<endl;
+        
+    }
+        cout <<"\n\nSuccessful Deliveries: " <<success_Missions<<endl;
+        cout<<"Failed Deliveries: "<<failed_Missions<<endl;
+        cout<<"Delayed Deliveries: "<<delayed_Missions<<endl;
+        cout<<"Battery Left: "<<battery;
 
     return 0;
 }
