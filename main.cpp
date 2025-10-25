@@ -44,6 +44,8 @@ string operationDecider(string weather, string obstacle, int battery) {
 }
 
 void Delivery_Results(string result) {
+    /*This function according to the output of status
+     of delivery prints the result of Delivery.*/
     if (result=="Success") {
         cout << "Your parcel was delivered."<<endl;
         success_Missions++;
@@ -62,6 +64,9 @@ void Delivery_Results(string result) {
 }
 
 int BatteryUpdate(int batteryLevel, string result) {
+    /*This function checks the delivery status and according to
+      that updates the battery of drone.
+     */
     if (result == "Success") {
         cout << "Trip completed successfully. 20% Battery is used."<<endl;
         batteryLevel = batteryLevel- 20;
@@ -78,7 +83,8 @@ int BatteryUpdate(int batteryLevel, string result) {
         cout << "Drone returned to base. The battery increased by 15%."<<endl;
         batteryLevel = batteryLevel- 15;
     }
-
+/*If battery exceeds 100 or becomes less than zero which are impractical
+ then battery is updated to either to 100 or 0 . */
     if (batteryLevel > 100) batteryLevel = 100;
     if (batteryLevel < 0) batteryLevel = 0;
 
