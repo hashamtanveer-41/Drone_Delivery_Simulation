@@ -4,15 +4,11 @@
 using namespace std;
 
 int check_battery(); // function for checking the weather . it is a function prototype
-#include<cstdlib>
-using namespace std;
-
 string operationDecider(string, string, int);   //Function to check the mission status
 void deliveryResults(string);  //Function to provide Delivery results
 int BatteryUpdate(int, string); // Function to update the Battery level
 
-// Declaring the global Variables for summary
-int success_Missions =0, failed_Missions =0, delayed_Missions =0;
+using namespace std;
 
 int main(){
     cout<< "\n\n-------------------------------------\n";
@@ -109,4 +105,6 @@ int BatteryUpdate(int batteryLevel, string result) {
     if (batteryLevel > 100) batteryLevel = 100;
     if (batteryLevel < 0) batteryLevel = 0;
     return batteryLevel;
+
+    return 0;
 }
