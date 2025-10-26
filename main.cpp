@@ -3,13 +3,12 @@
 using namespace std;
 
 string operationDecider(string, string, int);   //Function to check the mission status
-void Delivery_Results(string);  //Function to provide Delivery results
+void deliveryResults(string);  //Function to provide Delivery results
 int BatteryUpdate(int, string); // Function to update the Battery level
 
 // Declaring the global Variables for summary
-int success_Missions =0;
-int failed_Missions =0;
-int delayed_Missions =0;
+int success_Missions =0, failed_Missions =0, delayed_Missions =0;
+
 int main(){
     cout<< "\n\n-------------------------------------\n";
     cout<< "| Drone delivery Simulation started |\n";
@@ -26,7 +25,7 @@ int main(){
         obstacle = (rand()%2 ==0) ? "YES" : "NO";
         //battery = 10 + rand()% 91;
         result= operationDecider(weather, obstacle, battery);
-        Delivery_Results(result);
+        deliveryResults(result);
         battery= BatteryUpdate(battery, result);
         cout<<endl;
         
@@ -64,7 +63,7 @@ string operationDecider(string weather, string obstacle, int battery) {
 
 }
 
-void Delivery_Results(string result) {
+void deliveryResults(string result) {
     /*This function according to the output of status
      of delivery prints the result of Delivery.*/
     if (result=="Success") {
