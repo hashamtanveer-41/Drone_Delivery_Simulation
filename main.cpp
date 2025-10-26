@@ -41,9 +41,9 @@ int main(){
         cout<<"Battery Left: "<<battery;
 
     srand(time(0)); // helps generate a random number everytime
-cout << "remaining battery percentage = ";
+cout << "\nremaining battery percentage = ";
    cout << check_battery();  //calling battery function
-    cout << "%";
+    cout << "%\n";
 }
 // .....................declaration/defining of battery function.........................
 
@@ -51,8 +51,8 @@ int check_battery() {
     int battery= 10+rand()%75;
     return battery;
 }
-    return 0;
-}
+    //return 0;
+
 string operationDecider(string weather, string obstacle, int battery) {
     /*Checking various conditions to determine the operations
      should be Successful, delayed or failed.*/
