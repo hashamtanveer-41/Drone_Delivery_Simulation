@@ -38,13 +38,9 @@ int main(){
         cout <<"\n\nSuccessful Deliveries: " <<success_Missions<<endl;
         cout<<"Failed Deliveries: "<<failed_Missions<<endl;
         cout<<"Delayed Deliveries: "<<delayed_Missions<<endl;
-        cout<<"Battery Left: "<<battery;
-
-    srand(time(0)); // helps generate a random number everytime
-cout << "\nremaining battery percentage = ";
-   cout << check_battery();  //calling battery function
-    cout << "%\n";
+        cout<<"Battery Left: "<<battery<<"%";
 }
+
 string operationDecider(string weather, string obstacle, int battery) {
     /*Checking various conditions to determine the operations
      should be Successful, delayed or failed.*/
@@ -68,9 +64,7 @@ string operationDecider(string weather, string obstacle, int battery) {
         cout << "Mission successful!"<<endl;
         return "Success";
     }
-
 }
-
 void deliveryResults(string result) {
     /*This function according to the output of status
      of delivery prints the result of Delivery.*/
@@ -114,6 +108,5 @@ int BatteryUpdate(int batteryLevel, string result) {
  then battery is updated to either to 100 or 0 . */
     if (batteryLevel > 100) batteryLevel = 100;
     if (batteryLevel < 0) batteryLevel = 0;
-
     return batteryLevel;
 }
