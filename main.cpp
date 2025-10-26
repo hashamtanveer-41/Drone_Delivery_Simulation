@@ -45,14 +45,6 @@ cout << "\nremaining battery percentage = ";
    cout << check_battery();  //calling battery function
     cout << "%\n";
 }
-// .....................declaration/defining of battery function.........................
-
-int check_battery() {
-    int battery= 10+rand()%75;
-    return battery;
-}
-    //return 0;
-
 string operationDecider(string weather, string obstacle, int battery) {
     /*Checking various conditions to determine the operations
      should be Successful, delayed or failed.*/
@@ -98,7 +90,6 @@ void deliveryResults(string result) {
         cout << "Drone returned to base for recharging."<<endl;
     }
 }
-
 int BatteryUpdate(int batteryLevel, string result) {
     /*This function checks the delivery status and according to
       that updates the battery of drone.
